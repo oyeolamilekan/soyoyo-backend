@@ -1,0 +1,75 @@
+- name: Paystack
+  title: paystack
+  country:
+    - nigeria
+    - kenya
+    - united states
+  is_crypto: false
+  default_currency: ngn
+  currencies:
+    - usd
+    - ngn
+    - eur
+  is_deposit: false
+  is_withdrawal: false
+  payment_methods:
+    - card
+    - bank
+    - ussd
+
+- name: Flutterwave
+  title: flutterwave
+  country:
+    - nigeria
+    - kenya
+    - united states
+  is_crypto: false
+  default_currency: ngn
+  currencies:
+    - usd
+    - ngn
+    - eur
+  is_deposit: true
+  is_withdrawal: false
+  payment_methods:
+    - card
+    - bank
+    - ussd
+
+- name: KoraPay
+  title: korapay
+  country:
+    - nigeria
+    - kenya
+    - united states
+  is_crypto: false
+  default_currency: ngn
+  currencies:
+    - usd
+    - ngn
+    - eur
+  is_deposit: true
+  is_withdrawal: false
+  payment_methods:
+    - card
+    - bank
+    - ussd
+
+- name: Fincra
+  title: fincra
+  country:
+    - nigeria
+    - kenya
+    - united states
+  is_crypto: false
+  default_currency: ngn
+  currencies:
+    - usd
+    - ngn
+    - eur
+  is_deposit: true
+  is_withdrawal: false
+  payment_methods:
+    - card
+    - bank
+    - ussd

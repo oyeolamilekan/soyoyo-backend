@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  private_key: MyString
+  public_key: MyText
+  business: one
+
+two:
+  private_key: MyString
+  public_key: MyText
+  business: two
