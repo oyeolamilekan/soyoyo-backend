@@ -6,7 +6,7 @@ class GetProvidersService < ApplicationService
     end
 
     def call
-        providers = Provider.joins(:business).where(businesses: { slug: business_slug })
+        providers = Provider.joins(:business).where(businesses: { slug: @business_slug })
         return providers
     end
 end

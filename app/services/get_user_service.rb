@@ -6,7 +6,7 @@ class GetUserService < ApplicationService
     end
 
     def call
-        user = User.find_by(email: email)
+        user = User.find_by(email: @email)
         return user
     end
 end
