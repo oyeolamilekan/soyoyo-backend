@@ -9,7 +9,7 @@ class Provider < ApplicationRecord
 
   def unique_provider_for_merchants
     if Provider.exists?(title: title, business_id: business_id)
-      errors.add(:integration, "#{title} Already exists with your business")  
+      errors.add(:base, "#{title} Already exists with your business")  
     end
   end
 end

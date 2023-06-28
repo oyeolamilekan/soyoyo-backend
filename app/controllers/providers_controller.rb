@@ -29,7 +29,7 @@ class ProvidersController < ApplicationController
   end
 
   def remove_provider
-    provider_obj = DeleteProviderService.call(params[:provider_id], params[:business_slug])
+    provider_obj = DeleteProviderService.call(params[:business_slug], params[:provider_id])
     api_response true, "Successfully removed provider", nil
   end
 

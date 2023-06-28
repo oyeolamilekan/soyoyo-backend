@@ -7,6 +7,9 @@ class DeleteProviderService < ApplicationService
     end
 
     def call
-        provider = Provider.joins(:business).find_by(id: @provider_id, businesses: { slug: @business_slug }).destroy!
+        puts @provider_id
+        puts @business_slug
+        puts "fkkkf/fff"
+        provider = Provider.joins(:business).find_by(id: @provider_id, businesses: { slug: @business_slug }).destroy
     end
 end

@@ -1,8 +1,9 @@
 class PaymentPage < ApplicationRecord
   enum :status, [:enabled, :disabled]
+  enum :currency, [:naira, :dollar], default: :naira
   belongs_to :business
-  before_update :create_slugify_url
-  before_create :create_slugify_url
+  before_update :slugify_url
+  before_create :slugify_url
   validates_uniqueness_of :title, message: "A Payment page with this name already exits."
   validates_presence_of :amount
   scope :enabled, -> { where(status: :enabled) }
@@ -17,7 +18,7 @@ class PaymentPage < ApplicationRecord
   end
 
   private
-  def create_slugify_url
+  def slugify_url
     self.slug = slugify(self.title)
   end
 
