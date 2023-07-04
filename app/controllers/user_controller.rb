@@ -23,7 +23,7 @@ class UserController < ApplicationController
     def login
         user = GetUserService.call(sign_in_params[:email])
         if user && user.authenticate(sign_in_params[:password])
-            token = UserService.encode_user_token(user_id: user.id)
+            token = EncodeJsonWebToken.call({user_id: user.id})
             api_response true, "Successfully Logged in", user.as_json.merge(token: token), :ok
         else
             api_response false, "Error in authenticating user, kindly check your credentials", nil, :unprocessable_entity
