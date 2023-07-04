@@ -10,12 +10,12 @@ class ApiKey < ApplicationRecord
 
   def self.regenerate_api_keys(business_slug)
     api_key_obj = ApiKey.joins(:business).find_by(businesses: { slug: business_slug })
-    api_key_obj.update(public_key: "pk_live_#{Utils.generate_random_string}", private_key: "pr_live_#{Utils.generate_random_string}")
+    api_key_obj.update(public_key: "pk_live_#{GenerateRandomString.call(32)}", private_key: "pr_live_#{GenerateRandomString.call(32)}")
   end
 
   def generate_api_keys
-    self.public_key = "pk_live_#{Utils.generate_random_string}"
-    self.private_key = "pr_live_#{Utils.generate_random_string}"
+    self.public_key = "pk_live_#{GenerateRandomString.call(32)}"
+    self.private_key = "pr_live_#{GenerateRandomString.call(32)}"
   end
 
 end
