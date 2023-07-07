@@ -32,7 +32,7 @@ RSpec.describe "BusinessController", type: :request do
           business2 = Business.create(title: "Business 2")
     
           # Make a GET request to the /api/v1/business/all_businesses endpoint with authentication headers
-          get "/api/v1/business/all_businesses", headers: headers
+          get "/api/v1/business/all_businesses", as: :json, headers: headers
     
           # Assert that the response is successful and returns a JSON array of businesses
           expect(response).to have_http_status(:success)
