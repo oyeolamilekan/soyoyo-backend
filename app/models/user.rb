@@ -6,6 +6,10 @@ class User < ApplicationRecord
     validates_uniqueness_of :email, message: "This user with email already exists"
 
     def as_json(options = {})
-        super(options.merge({ except: [:id, :password, :password_digest] }))
+        super(options.merge({ except: [:id, :password, :password_digest], methods: [:token] }))
+    end
+
+    def token
+        EncodeJsonWebToken.call({user_id: self.id})
     end
 end
