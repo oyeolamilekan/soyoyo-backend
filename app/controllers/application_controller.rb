@@ -44,7 +44,7 @@ class ApplicationController < ActionController::API
         end
     end
 
-    def api_response(status, message, data, status_code = nil)
+    def api_response(status:, message:, data:, status_code: nil)
         return render json: {
             status: status,
             message: message,
