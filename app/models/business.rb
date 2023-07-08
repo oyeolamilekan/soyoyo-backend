@@ -28,6 +28,6 @@ class Business < ApplicationRecord
   end
 
   def create_api_keys
-    ApiKey.create(business_id: self.id)
+    CreateApiKeysService.call(self.id)
   end
 end
