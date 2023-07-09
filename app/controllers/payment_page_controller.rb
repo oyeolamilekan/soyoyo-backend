@@ -38,12 +38,12 @@ class PaymentPageController < ApplicationController
 
     def fetch_payment_pages
         payment_pages_obj = GetPaymentPagesService.call(params[:business_slug])
-        api_response(status: true, message: "Payment pages fetched.", data: payment_pages_obj, status: :ok)
+        api_response(status: true, message: "Payment pages fetched.", data: payment_pages_obj, status_code: :ok)
     end
 
     def fetch_providers
         providers_obj = GetProvidersService.call(params[:business_slug])
-        api_response(status: true, message: "Providers fetched", data: providers_obj, status: :ok)
+        api_response(status: true, message: "Providers fetched", data: providers_obj, status_code: :ok)
     end
 
     private

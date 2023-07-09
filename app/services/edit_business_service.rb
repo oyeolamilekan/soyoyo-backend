@@ -9,6 +9,7 @@ class EditBusinessService < ApplicationService
     def call
         business_obj = Business.find_by(@params)
         raise StandardError, 'Business does not exists.' unless business_obj.present?
-        business_obj.update(@params)
+        business_obj.update(@business)
+        business_obj
     end
 end
