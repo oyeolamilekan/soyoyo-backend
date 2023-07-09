@@ -47,6 +47,7 @@ RSpec.describe "BusinessController", type: :request do
       business_obj = FactoryBot.create(:business, user: user)
       post "/api/v1/business/generate_api_key/#{business_obj.slug}/", headers: headers
       expect(response).to have_http_status(:ok)
+      expect(ApiKey.count).to eq(1)
     end
     
   end
