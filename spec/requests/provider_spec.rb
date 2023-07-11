@@ -5,18 +5,18 @@ RSpec.describe "ProviderController", type: :request do
     let(:business) {FactoryBot.create(:business)}
     let(:headers) { { "Authorization" => "Bearer #{user.token}" } }
 
-    # describe "POST /api/v1/provider/add_provider/:slug" do
+    describe "POST /api/v1/provider/add_provider/:slug" do
 
-    #     it "should create new provider" do
-    #       provider_obj = FactoryBot.create(:provider, business: business)
-    #       post_params = { title: "my provider" }
-    #       post "/api/v1/provider/add_provider/#{provider_obj.slug}/", params: post_params, headers: headers
-    #       expect(response).to have_http_status(:created)
-    #       expect(Provider.count).to eq(1)
-    #       expect(Provider.last.title).to eq("my provider")
-    #     end
+        it "should create new provider" do
+          provider_obj = FactoryBot.create(:provider, business: business)
+          post_params = { title: "my provider" }
+          post "/api/v1/provider/add_provider/#{provider_obj.slug}/", params: post_params, headers: headers
+          expect(response).to have_http_status(:created)
+          expect(Provider.count).to eq(1)
+          expect(Provider.last.title).to eq("my provider")
+        end
     
-    # end
+    end
 
     describe "GET /api/v1/provider/all_providers" do
 
