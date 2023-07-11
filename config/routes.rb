@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       post '/login', to: 'user#login'
       put '/change_password', to: 'user#change_password'
       post '/request_reset_password', to: 'user#request_reset_password'
+      post '/reset_password', to: 'user#reset_password'
     end
 
     scope '/business' do

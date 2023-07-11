@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_28_074103) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_10_182323) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_074103) do
     t.index ["business_id"], name: "index_providers_on_business_id"
   end
 
+  create_table "reset_tokens", force: :cascade do |t|
+    t.text "link"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reset_tokens_on_user_id"
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.text "amount"
     t.bigint "payment_page_id", null: false
@@ -76,5 +84,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_074103) do
   add_foreign_key "businesses", "users"
   add_foreign_key "payment_pages", "businesses"
   add_foreign_key "providers", "businesses"
+  add_foreign_key "reset_tokens", "users"
   add_foreign_key "transactions", "payment_pages"
 end
