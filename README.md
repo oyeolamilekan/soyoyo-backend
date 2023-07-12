@@ -13,3 +13,7 @@ Run ```bundle install```
 * Configuration
 Create a postgres database and add the variables to .env
 
+* Seed
+Run rails db:setup
+Run rails db:migrate
+Run rails db:seed
