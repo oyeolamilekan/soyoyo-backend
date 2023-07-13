@@ -76,16 +76,6 @@ Rails.application.configure do
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
 
-  config.middleware.insert_before 0, Rack::Cors, logger: (-> { Rails.logger }) do
-    allow do
-      origins(/soyoyo-frontend.vercel.app/)
-      resource '*',
-               headers: :any,
-               methods: %i[get post delete put patch options head],
-               max_age: 86_400
-    end
-  end
-
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
