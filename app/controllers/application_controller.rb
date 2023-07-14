@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-    # rescue_from StandardError, with: :render_error_response
+    rescue_from StandardError, with: :render_error_response
 
     def not_found
         render json: { error: 'not_found' }
@@ -54,6 +54,13 @@ class ApplicationController < ActionController::API
     end
 
     def render_error_response(exception)
-        render json: { status: false, message: exception.message, data: nil }, status: :internal_server_error
+
+        Rails.logger.error("An exception occurred: #{exception.message}")
+
+        if Rails.env.production?
+            return api_response(status: false, message: "500 server error.", data: nil, status_code: :internal_server_error)
+        else
+            raise exception
+        end
     end
 end
